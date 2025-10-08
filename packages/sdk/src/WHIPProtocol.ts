@@ -20,9 +20,12 @@ export class WHIPProtocol {
         });
     }
 
-    delete(url: string): Promise<Response> {
+    delete(url: string, authKey: string | undefined): Promise<Response> {
         return fetch(url, {
-            method: "DELETE"
+            method: "DELETE",
+            headers: {
+                "Authorization": `Bearer ${authKey}`,
+            }
         });
     }
 
